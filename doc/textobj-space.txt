@@ -55,7 +55,7 @@ KEY MAPPINGS					*textobj-space-key-mappings*
 
 These key mappings are defined in Visual mode and Operator-pending mode.
 
-<Plug>(textobj-space)				*<Plug>(textobj-space-a)*
+<Plug>(textobj-space)				*<Plug>(textobj-space)*
 			Select the continuity space character from current
 			position.
 
