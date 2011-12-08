@@ -1,5 +1,5 @@
 " textobj-space - Text objects for continuity space.
-" Version: 0.0.0
+" Version: 0.0.1
 " Author : saihoooooooo <saihoooooooo@gmail.com>
 " License: So-called MIT/X license  {{{
 "     Permission is hereby granted, free of charge, to any person obtaining
@@ -43,7 +43,10 @@ endfunction
 
 function! s:select()
     if matchstr(getline('.'), '.', col('.')-1) !~ '[ 　\t]\+'
-        return 0
+        call search('[ 　\t]\+')
+        if matchstr(getline('.'), '.', col('.')-1) !~ '[ 　\t]\+'
+            return
+        endif
     endif
     call search('[ 　\t]\+', 'bc')
     let start = getpos('.')

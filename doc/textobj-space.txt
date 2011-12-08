@@ -1,6 +1,6 @@
 *textobj-space.txt*	Text objects for continuity space.
 
-Version: 0.0.0
+Version: 0.0.1
 Author : saihoooooooo <saihoooooooo@gmail.com>
 License: So-called MIT/X license  {{{
     Permission is hereby granted, free of charge, to any person obtaining
@@ -57,7 +57,7 @@ These key mappings are defined in Visual mode and Operator-pending mode.
 
 <Plug>(textobj-space)				*<Plug>(textobj-space)*
 			Select the continuity space character from current
-			position.
+			position or next position.
 
 ==============================================================================
 CUSTOMIZING					*textobj-space-customizing*
@@ -79,9 +79,11 @@ unless [!] is given.
 ==============================================================================
 CHANGELOG					*textobj-space-changelog*
 
+0.0.1	2011-12-08
+	- If there is no space at the cursor position, then find the next
+
 0.0.0	2011-11-20
 	- Initial version.
-
 
 ==============================================================================
 vim:tw=78:ts=8:ft=help:norl:fen:fdl=0:fdm=marker:
