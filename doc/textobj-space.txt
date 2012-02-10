@@ -1,6 +1,6 @@
 *textobj-space.txt*	Text objects for continuity space.
 
-Version: 0.0.1
+Version: 0.0.2
 Author : saihoooooooo <saihoooooooo@gmail.com>
 License: So-called MIT/X license  {{{
     Permission is hereby granted, free of charge, to any person obtaining
@@ -73,11 +73,14 @@ unless [!] is given.
 
 	{lhs}	{rhs}				~
 	-----	---------------------------	~
-	as	<Plug>(textobj-space)
-	is	<Plug>(textobj-space)
+	aS	<Plug>(textobj-space)
+	iS	<Plug>(textobj-space)
 
 ==============================================================================
 CHANGELOG					*textobj-space-changelog*
+
+0.0.2	2012-02-10
+	- Change default keymap, as/is -> aS/iS
 
 0.0.1	2011-12-08
 	- If there is no space at the cursor position, then find the next

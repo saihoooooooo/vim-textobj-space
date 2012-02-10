@@ -31,7 +31,7 @@ set cpo&vim
 
 call textobj#user#plugin('space', {
 \    '-': {
-\        'select': ['as', 'is'],
+\        'select': ['aS', 'iS'],
 \        '*select-function*': 's:select',
 \        '*sfile*': expand('<sfile>')
 \    }
