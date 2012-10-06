@@ -1,5 +1,5 @@
 " textobj-space - Text objects for continuity space.
-" Version: 0.0.1
+" Version: 0.0.3
 " Author : saihoooooooo <saihoooooooo@gmail.com>
 " License: So-called MIT/X license  {{{
 "     Permission is hereby granted, free of charge, to any person obtaining
@@ -30,27 +30,35 @@ let s:save_cpo = &cpo
 set cpo&vim
 
 call textobj#user#plugin('space', {
-\    '-': {
-\        'select': ['aS', 'iS'],
-\        '*select-function*': 's:select',
-\        '*sfile*': expand('<sfile>')
-\    }
-\})
+\     '-': {
+\         '*sfile*': expand('<sfile>:p'),
+\         'select-a': 'aS', '*select-a-function*': 's:select_a',
+\         'select-i': 'iS', '*select-i-function*': 's:select_i',
+\     }
+\ })
 
-function! s:select()
-    return s:select()
+let s:pattern_a = '[[:blank:]　]\+'
+let s:pattern_i = ' \+'
+
+function! s:select_a()
+    return s:select(s:pattern_a)
 endfunction
 
-function! s:select()
-    if matchstr(getline('.'), '.', col('.')-1) !~ '[ 　\t]\+'
-        call search('[ 　\t]\+')
-        if matchstr(getline('.'), '.', col('.')-1) !~ '[ 　\t]\+'
+function! s:select_i()
+    return s:select(s:pattern_i)
+endfunction
+
+function! s:select(pattern)
+    if matchstr(getline('.'), '.', col('.') - 1) !~ a:pattern
+        call search(a:pattern)
+        if matchstr(getline('.'), '.', col('.') - 1) !~ a:pattern
             return
         endif
     endif
-    call search('[ 　\t]\+', 'bc')
+
+    call search(a:pattern, 'bc')
     let start = getpos('.')
-    call search('[ 　\t]\+', 'ce')
+    call search(a:pattern, 'ce')
     let end = getpos('.')
     return ['v', start, end]
 endfunction

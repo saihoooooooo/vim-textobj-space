@@ -1,6 +1,6 @@
 *textobj-space.txt*	Text objects for continuity space.
 
-Version: 0.0.2
+Version: 0.0.3
 Author : saihoooooooo <saihoooooooo@gmail.com>
 License: So-called MIT/X license  {{{
     Permission is hereby granted, free of charge, to any person obtaining
@@ -55,7 +55,11 @@ KEY MAPPINGS					*textobj-space-key-mappings*
 
 These key mappings are defined in Visual mode and Operator-pending mode.
 
-<Plug>(textobj-space)				*<Plug>(textobj-space)*
+<Plug>(textobj-space-a)				*<Plug>(textobj-space-a)*
+			Select the continuity space, tab and multibyte space
+			character from current position or next position.
+
+<Plug>(textobj-space-i)				*<Plug>(textobj-space-i)*
 			Select the continuity space character from current
 			position or next position.
 
@@ -73,11 +77,14 @@ unless [!] is given.
 
 	{lhs}	{rhs}				~
 	-----	---------------------------	~
-	aS	<Plug>(textobj-space)
-	iS	<Plug>(textobj-space)
+	aS	<Plug>(textobj-space-a)
+	iS	<Plug>(textobj-space-i)
 
 ==============================================================================
 CHANGELOG					*textobj-space-changelog*
+
+0.0.3	2012-10-06
+	- Distribute behavior of 'aS' and 'iS'.
 
 0.0.2	2012-02-10
 	- Change default keymap, as/is -> aS/iS
